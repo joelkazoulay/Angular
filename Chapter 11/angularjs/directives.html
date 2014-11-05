@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="exampleApp">
+<head>
+    <title>Directives</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="bootstrap-theme.css" rel="stylesheet">
+    <script src="angular.js"></script>
+    <script>
+        angular.module('exampleApp', [])
+                .controller('defaultCtrl', function($scope) {
+                    $scope.dataValue = false;
+                })
+                .directive('tap', function() {
+                    return function(scope, elem, attrs) {
+                        elem.on('touchstart touchend', function() {
+                            scope.$apply(attrs['tap']);
+                        });
+                    }
+                });
+    </script>
+    <style>
+        tr.Red { background-color: lightcoral; }
+        tr.Green { background-color: lightgreen }
+        tr.Blue { background-color: lightblue }
+    </style>
+</head>
+<body>
+<div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+    <div class="well">
+        <label>
+            <input type="checkbox" ng-model="dataValue">
+            Set the Data Value
+        </label>
+    </div>
+
+    <button class="btn btn-success" ng-disabled="dataValue">My button</button>
+</div>
+</body>
+</html>
