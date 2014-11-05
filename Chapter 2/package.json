@@ -1,8 +1,0 @@
-{
-  "name": "Angular",
-  "version": "0.0.1",
-  "devDependencies": {
-    "connect": "2.X.X"
-  }
-}
-
